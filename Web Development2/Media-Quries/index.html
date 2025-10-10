@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+    <style>
+        .card {
+            background-color: gray;
+            color:white;
+            padding: 10px;
+            margin: 50 px auto;
+        }
+        @media screen and (max-width: 450) {
+            .card{
+                background-color:burlywood;
+                color:blue;
+            }    
+        }
+        @media print{
+            .card{
+                background-color: blueviolet;
+                color:aquamarine;
+            }
+        }
+        @media only screen and (mid-width: 768px) and (orientation:portrait) {
+            .card{
+                background-color: chartreuse;
+                color: brown;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+      <h1>media Queries</h1>
+      <p>
+        nothing to say. wakanda forever!!!
+      </p>
+    </div>
+    
+</body>
+</html>
