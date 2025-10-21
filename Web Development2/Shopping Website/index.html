@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sport Go</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <style>
+    @media (min-width: 992px) { 
+      .navbar {
+        background-color: #93c9ff; 
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 991px) { 
+      .navbar {
+        background-color: #d1b8ff; 
+      }
+    }
+
+    @media (max-width: 599px) { 
+      .navbar {
+        background-color: #b2ea87; 
+      }
+    }
+/*color of navigation bar*/
+    .navbar-nav .nav-link {
+      color: rgb(255, 255, 255);
+    }
+/*color when click*/
+    .navbar-nav .nav-link:hover {
+      background-color: rgba(200, 200, 200, 0.887);
+      border-radius: 5px;
+    }
+
+    .product-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .product-col {
+      flex: 1;
+      min-width: 250px;
+    }
+/*shopping cards*/
+    @media (max-width: 400px) {
+      .product-row {
+        flex-direction: column;
+      }
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Sport Go</a>
+
+      <div id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Shop Now</h2>
+
+    <div class="product-row">
+      <div class="product-col">
+        <div class="card shadow-sm mb-4">
+          <img src="https://m.media-amazon.com/images/I/61DhovGFGYL.jpg" alt="Earphone">
+          <div class="card-body text-center">
+            <h5 class="card-title">Earphone</h5>
+            <p class="text-muted">$31.99</p>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <img src="https://i.ebayimg.com/images/g/8IsAAOSwdytfqmVw/s-l1200.jpg" alt="Road Bike">
+          <div class="card-body text-center">
+            <h5 class="card-title">Road Bike</h5>
+            <p class="text-muted">$92.99</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <div class="card shadow-sm mb-4">
+          <img src="https://www.wilson.com/en-us/blog/basketball/how-tos/media_19188a300e8c9b951a16a1cfe10327d31dfaa428d.png?width=750&format=png&optimize=medium" alt="Basketball">
+          <div class="card-body text-center">
+            <h5 class="card-title">Basketball</h5>
+            <p class="text-muted">$11.98</p>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <img src="https://photos.netjuggler.net/Frisbee-Ultimate-Scolaire-LMI-160g/frisbee-ultimate-scolaire-lmi-160g.65518.jpg" alt="Frisbee">
+          <div class="card-body text-center">
+            <h5 class="card-title">Frisbee</h5>
+            <p class="text-muted">$2.98</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <div class="card shadow-sm mb-4">
+          <img src="https://yumo.ca/cdn/shop/products/LiNing_badminton-racket-AYPQ134-1_Windstorm74_pink_badminton_racket_YumoProShop.jpg?v=1671733784" alt="Badminton Racket">
+          <div class="card-body text-center">
+            <h5 class="card-title">Badminton Racket</h5>
+            <p class="text-muted">$21.97</p>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <img src="./images/mhl-opener-run-shoes-311-67edd9f20e75a.jpg" alt="Running Shoes">
+          <div class="card-body text-center">
+            <h5 class="card-title">Running Shoes</h5>
+            <p class="text-muted">$62.97</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <footer class="bg-info text-light text-center py-3">
+    <p class="mb-0">&copy; 2025 Sport Go. All rights reserved.</p>
+  </footer>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
