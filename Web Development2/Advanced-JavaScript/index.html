@@ -16,6 +16,27 @@
         var form = document.forms["sign-in-form"];
         var email = form["email"].value;
         var password = form["password"].value;
+
+        //notes
+        var div = document.createElement("div");
+        div.setAttribute("id", "message")
+        
+
+        //notes
+        if (!email.value() === '' || !password.value){
+          div.textContent = "please fill out all fields.";
+          div.style.color = "red";
+          document.body.appendChild(div);
+          return;
+        }
+
+
+        //notes
+        var divByID = documrnt.getElementByID("message")
+        var divByQuerySelector = document.querySelector("message")
+
+
+        //notes
         console.log(["email:", email]);
         console.log("password:", password)
         event.preventDefault();
