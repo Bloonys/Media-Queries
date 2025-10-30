@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BMI Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #547fab;
+    }
+    .calculator-container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: rgb(255, 255, 255);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    .bmi-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-container">
+
+    <div class="mb-3">
+      <label for="weight" class="form-label">Weight in kilograms</label>
+      <input type="number" id="weight" name="weight" class="form-control" placeholder="Enter your weight(kg)" min="0" step="0.1">
+    </div>
+
+    <div class="mb-3">
+      <label for="height" class="form-label">Height in meters</label>
+      <input type="number" id="height" name="height" class="form-control" placeholder="Enter your height(m)" min="0" step="0.01">
+    </div>
+
+    
+    <button id="calculateBtn" class="btn btn-warning w-100 mb-3">Calculate</button>
+
+    <h3>Your Results</h3>
+
+    <p id="resultText">Results</p>
+
+    <button id="resetBtn" class="btn btn-secondary w-100 mb-3">Reset</button>
+
+    <img src="https://images.everydayhealth.com/images/diet-nutrition/adult-body-mass-index-guide-alt-1440x810.jpg"  class="bmi-image">
+
+  </div>
+  <script src="./Calculator/kkk.js"></script>
+
+</body>
+</html>
