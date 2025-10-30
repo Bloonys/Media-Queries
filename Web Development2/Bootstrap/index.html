@@ -15,17 +15,89 @@
             background: white;
             border: 1px salmon;
         }
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+        #idSelector{
+            background-color: rgb(163, 240, 194);
+        }
     </style>
 </head>
 <body>
+    <a href="homepage.html">HomePage</a>
+    <a href="aboutus.html">AboutUs</a>
+    <a href="contactus.html">ContactUs</a>
+
+    <div>
+         <h1>ID Selector</h1>
+         <p id="idSelector">Change the background color using id selector.</p>
+      </div>
+
+    <h1 style="color:blue; background-color:pink; font-size:200%">HomePage</h1>
+    <p style="color:blue; background-color:yellow;">Welcome to the HomePage. Today you have learned how to use attributes to add images and to navigate between pages.</p>
     <h1>Web Layout</h1>
     <p>
         Traditional flow of HTML, wakanda forever!
         <span class="block"
         ><stronge>Block</stronge> elements start on a new line and take up the full width available.</span>
     </p>
-    <p>
+    
+    <table border="1">
+  <colgroup>
+    <col style="background-color: pink">
+    <col style="background-color: pink">
+    <col>
+    <col>
+    <col style="background-color: yellow">
+  </colgroup>
 
-    </p>
-</body>
-</html>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>GPA</th>
+    <th>Age</th>
+    <th>Phone Number</th>
+  </tr>
+
+  <tr>
+    <td>Monica</td>
+    <td>George</td>
+    <td>3</td>
+    <td>19</td>
+    <td>3425251726</td>
+  </tr>
+
+  <tr>
+    <td>Alica</td>
+    <td>Roger</td>
+    <td>5</td>
+    <td>18</td>
+    <td>3425007111</td>
+  </tr>
+
+  <tr>
+    <td rowspan="2">Wina</td>
+    <td rowspan="2">Joseph</td>
+    <td rowspan="2">2</td>
+    <td rowspan="2">17</td>
+    <td>342627326</td>
+  </tr>
+
+  <tr>
+    <td>342523236</td>
+  </tr>
+  <h4>Login Form</h4>
+
+<form action="/action_page.php">
+  Email:<br>
+  <input type="text" name="email">
+  <br>
+  Password:<br>
+  <input type="text" name="password">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</table>

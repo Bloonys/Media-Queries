@@ -9,44 +9,46 @@
   <style>
 
     body {
-      background-color: #7b5741;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding-top: 50px;
+      padding-top: 100px;
       background-image: 
-        linear-gradient(to right, rgba(255,255,255,0.85) 50%, rgba(139,69,19,0.5)),
+        linear-gradient(to right, rgba(255, 255, 255, 0.85) 50%, rgba(81, 16, 16, 0.5)),
         url(https://somedayilllearn.com/wp-content/uploads/2020/05/cup-of-black-coffee-scaled-720x405.jpeg);
       background-size: cover;
       background-position: center right;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      font-style:italic;
       
     }
     .coffee-form {
-      max-width: 500px;
+      max-width: 550px;
       margin: auto;
-      background: #ffffff;
-      font-family: 'Poppins', sans-serif;
+      background: #fee8e8;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      box-shadow: 0 1px 30px rgb(160, 136, 136);
     }
     .coffee-form h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-    .btn-coffee {
-        background-color: #866249;
+    .coffee-form h5 {
+      color: #954141;
+    }
+    .submitcoffee {
+        background-color: #624632;
         color: white;
         border: none;
     }
-    .btn-coffee:hover {
-        background-color: #6c3b18;
-    }
 
     input[type="radio"] {
-      accent-color: pink; /* 改变点击时的小圆点颜色 */
+      accent-color: rgb(134, 38, 62); 
     }
-    
+    input[type="checkbox"] {
+      accent-color: rgb(139, 91, 91); 
+    }
+        
   </style>
 </head>
 
@@ -54,65 +56,46 @@
 
   <div class="coffee-form">
     <h2>Coffee Order</h2>
-
     <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Which coffee would you like to order?</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="coffee" id="turkish" value="turkish">
-          <label class="form-check-label" for="turkish">
-            Turkish coffee  $3
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="coffee" id="american" value="american">
-          <label class="form-check-label" for="american">
-            American coffee  $5
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="coffee" id="iced-latte" value="iced-latte">
-          <label class="form-check-label" for="iced-latte">
-            Iced latte  $7
-          </label>
-        </div>
-      </div>
 
 
-      <div class="mb-3">
-        <label class="form-label">Do you need any extras?</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="extra-coffee" value="extra-coffee">
-          <label class="form-check-label" for="extra-coffee">
-            Extra coffee  $1.5
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="whipped-cream" value="whipped-cream">
-          <label class="form-check-label" for="whipped-cream">
-            Whipped cream  $2
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="extra-caramel" value="extra-caramel">
-          <label class="form-check-label" for="extra-caramel">
-            Extra caramel  $3
-          </label>
-        </div>
-      </div>
+        <label for="name" class="form-label"> Your Name:</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter your name" required><br>
 
-      <div class="text-center">
-        <button type="submit" class="btn btn-coffee">Submit Order</button>
-      </div>
-    </form>
+
+        <h5>Which coffee would you like to order?</h5>
+
+          <input type="radio" name="coffee" value="turkish"> Turkish coffee  $3 <br>
+
+          <input type="radio" name="coffee" value="american"> American coffee  $5<br>
+
+          <input type="radio" name="coffee" value="iced-latte"> Iced latte  $7<br>
+
+
+        <h5>Do you need any extras?</h5>
+ 
+          <input type="checkbox" name="extra-coffee" value="g1"> Extra coffee  $1.5<br>
+
+          <input type="checkbox" name="whipped-cream" value="g2"> Whipped cream  $2<br>
+   
+          <input type="checkbox" name="extra-caramel" value="g3"> Extra caramel  $3<br>
+
+          <h5>How many sugar cubes do you like?</h5>
+          <select name="sugar">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select><br><br>
+
+        <input type="submit" class="btn submitcoffee" value="Submit"></button>
+      </form>
+
+
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
 
