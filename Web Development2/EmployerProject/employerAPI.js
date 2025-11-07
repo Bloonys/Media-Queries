@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 app.use(express.json()); // Allow JSON body parsing
 
-const PORT = 3000;
+const PORT = 3030;
 
 // Employers data (in-memory array)
 let Employers = [
@@ -57,6 +57,11 @@ app.delete("/employers/:id", (req, res) => {
   Employers.splice(index, 1);
   res.json({ message: "Employer deleted successfully!", Employers });
 });
+
+app.get("/", (req, res) => {
+  res.send("Server is working!");
+});
+
 
 // ✅ Start Server
 app.listen(PORT, () => {
