@@ -31,6 +31,6 @@ sequelize
     console.error("Error creating tables:", err);
   });
 
-app.listen(3306, () => {
-  console.log("Runing！");
+app.listen(3000, () => {
+  console.log("Runing on port 3000");
 });
