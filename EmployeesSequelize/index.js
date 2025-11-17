@@ -31,6 +31,6 @@ sequelize
     console.error("Error creating tables:", err);
   });
 
-app.listen(3001, "127.0.0.1", () => {
-  console.log("Listening on 127.0.0.1:3000");
+app.listen(3306, () => {
+  console.log("Runing！");
 });
