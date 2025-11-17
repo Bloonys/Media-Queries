@@ -1,20 +1,25 @@
 // Import express
 const express = require("express");
+const cors = require("cors");
 const app = express();
-app.use(express.json()); // Allow JSON body parsing
+app.use(cors()); 
 
-const PORT = 3030;
+const PORT = 3000;
+
+app.use(customMiddleware);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Employers data (in-memory array)
-let Employers = [
-  { id: 1, name: "John Smith", department: "HR", salary: 5000 },
-  { id: 2, name: "Alice Johnson", department: "IT", salary: 7000 },
-  { id: 3, name: "Mark Lee", department: "Finance", salary: 6500 }
+var employers = [
+  { id: 1, name: "John1", department: "HR", salary: 5000 },
+  { id: 2, name: "John2", department: "IT", salary: 7000 },
+  { id: 3, name: "John3", department: "Finance", salary: 6500 }
 ];
 
 // ✅ GET - Get all employers
 app.get("/employers", (req, res) => {
-  res.json(Employers);
+  res.status(200).send(users);
 });
 
 // ✅ POST - Add new employer

@@ -1,13 +1,18 @@
-const Sequelize = require("sequelize");       // Import Sequelize class
-const sequelize = require("../config");        // Import the Sequelize object
+const { Sequelize, DataTypes } = require("sequelize");     
+const sequelize = require("../config"); 
 
-// Create the model using define()
 const Department = sequelize.define("Department", {
-  name: {
-    type: Sequelize.STRING,
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 });
 
-// Export the model
 module.exports = Department;
+

@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("companyDB", "root", "YOUR_PASSWORD", {
+const sequelize = new Sequelize("componyDB", "root", "123456", {
   host: "localhost",
-  dialect: "mysql",
+  dialect: "mariadb",
 });
 
 module.exports = sequelize;

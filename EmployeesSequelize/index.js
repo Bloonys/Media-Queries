@@ -1,27 +1,27 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const sequelize = require("./config");
 
-// 1️⃣ Import the two models
 const Department = require("./models/Department");
 const Employee = require("./models/Employee");
 
-// 2️⃣ Apply association
+app.use(cors());
+
 Department.hasMany(Employee, { onDelete: "CASCADE" });
 Employee.belongsTo(Department);
 
-// 3️⃣ Authenticate connection
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection established successfully.");
-  })
-  .catch((err) => {
-    console.error("Unable to connect to the database:", err);
-  });
+function customMiddleware(req, res, next) {
+  console.log("Middleware function called!!!");
+  next();
+}
 
-// 4️⃣ Map models into the database using sync()
+app.use(customMiddleware);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 sequelize
   .sync()
   .then(() => {
@@ -31,7 +31,6 @@ sequelize
     console.error("Error creating tables:", err);
   });
 
-// 5️⃣ Listen to the server
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(3001, "127.0.0.1", () => {
+  console.log("Listening on 127.0.0.1:3000");
 });
