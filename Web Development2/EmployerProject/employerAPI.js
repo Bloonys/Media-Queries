@@ -2,11 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
+//routes------------
+const employeeRoutes = require("./routes/employeeRoutes");
+
 app.use(cors());
 
 const PORT = 3000;
 
-// Middleware example
+// Middleware
 function customMiddleware(req, res, next) {
   console.log("Middleware function called!");
   next();
@@ -16,25 +19,24 @@ app.use(customMiddleware);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ------------------------------
-//   Employees data
-// ------------------------------
+//Employees data
 let employees = [
   { id: 1, name: "John1", department: "HR", salary: 5000 },
   { id: 2, name: "John2", department: "IT", salary: 7000 },
   { id: 3, name: "John3", department: "Finance", salary: 6500 }
 ];
 
-// ------------------------------
-//   GET - all employees
-// ------------------------------
+
+//routes------------
+app.use(employeeRoutes);
+
+
+//get method
 app.get("/employees", (req, res) => {
   res.status(200).json(employees);
 });
 
-// ------------------------------
-//   POST - add employee
-// ------------------------------
+//post method
 app.post("/employees", (req, res) => {
   const { id, name, department, salary } = req.body;
 
@@ -50,9 +52,7 @@ app.post("/employees", (req, res) => {
   });
 });
 
-// ------------------------------
-//   PUT - update employee
-// ------------------------------
+//put method
 app.put("/employees/:id", (req, res) => {
   const employeeId = parseInt(req.params.id);
   const { name, department, salary } = req.body;
@@ -71,9 +71,7 @@ app.put("/employees/:id", (req, res) => {
   });
 });
 
-// ------------------------------
-//   DELETE - delete employee
-// ------------------------------
+//delete method
 app.delete("/employees/:id", (req, res) => {
   const employeeId = parseInt(req.params.id);
   const index = employees.findIndex(e => e.id === employeeId);
@@ -90,16 +88,12 @@ app.delete("/employees/:id", (req, res) => {
   });
 });
 
-// ------------------------------
-//   Root route
-// ------------------------------
+
+
 app.get("/", (req, res) => {
   res.send("Server is working!");
 });
 
-// ------------------------------
-//   Start server
-// ------------------------------
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });

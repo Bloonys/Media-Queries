@@ -2,26 +2,33 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
+//inport modles and confi
 const sequelize = require("./config");
-
 const Department = require("./models/Department");
 const Employee = require("./models/Employee");
 
+//route------------
+const employeeRoutes = require("./routes/employeeRoutes");
+
 app.use(cors());
 
+//cascade：when delete(ex.department) will delete all(employer info)
 Department.hasMany(Employee, { onDelete: "CASCADE" });
 Employee.belongsTo(Department);
 
+// Middleware
 function customMiddleware(req, res, next) {
   console.log("Middleware function called!!!");
   next();
 }
-
 app.use(customMiddleware);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//routes-------------
+app.use(employeeRoutes);
 
+//sync method
 sequelize
   .sync()
   .then(() => {
