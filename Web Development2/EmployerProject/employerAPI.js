@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 
 //routes------------
+const departmentRoutes = require("./routes/departmentRoutes");
 const employeeRoutes = require("./routes/employeeRoutes");
 
 app.use(cors());
@@ -28,7 +29,8 @@ let employees = [
 
 
 //routes------------
-app.use(employeeRoutes);
+app.use("/departments", departmentRoutes);
+app.use("/employees", employeeRoutes);
 
 
 //get method

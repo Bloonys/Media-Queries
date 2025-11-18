@@ -1,10 +1,9 @@
 const router = require("express").Router();
-const Employee = require("../models/Employee");
 const Department = require("../models/Department");
 
-// GET all employees
-router.get("/employees", (req, res) => {
-  Employee.findAll()
+// GET all departments
+router.get("/departments", (req, res) => {
+  Department.findAll()
     .then((results) => {
       res.status(200).send(results);
     })
@@ -16,20 +15,18 @@ router.get("/employees", (req, res) => {
     });
 });
 
-// GET one employee by ID (with department info)
-router.get("/employees/:id", (req, res) => {
+// GET one department
+router.get("/departments/:id", (req, res) => {
   var id = parseInt(req.params.id);
-  Employee.findByPk(id, {
-    include: Department, 
-  })
-    .then((employee) => {
-      if (!employee) {
+  Department.findByPk(id)
+    .then((department) => {
+      if (!department) {
         return res.status(404).send({
-          message: "Employee not found.",
+          message: "Department not found.",
         });
       }
 
-      res.status(200).send(employee);
+      res.status(200).send(department);
     })
     .catch((err) => {
       res.status(500).send({
@@ -39,17 +36,16 @@ router.get("/employees/:id", (req, res) => {
     });
 });
 
-// POST create new employee
-router.post("/employees", (req, res) => {
-  var newEmployee = {
+// POST create department
+router.post("/departments", (req, res) => {
+  var newDepartment = {
     name: req.body.name,
-    department: req.body.department,
-    salary: req.body.salary,
+    description: req.body.description,
   };
 
-  Employee.create(newEmployee)
-    .then((employee) => {
-      res.status(201).send(employee);
+  Department.create(newDepartment)
+    .then((department) => {
+      res.status(201).send(department);
     })
     .catch((err) => {
       res.status(500).send({
@@ -59,25 +55,24 @@ router.post("/employees", (req, res) => {
     });
 });
 
-// PATCH update employee
-router.patch("/employees/:id", (req, res) => {
+// PATCH update department
+router.patch("/departments/:id", (req, res) => {
   var id = parseInt(req.params.id);
-  Employee.findByPk(id)
-    .then((employee) => {
-      if (!employee) {
+  Department.findByPk(id)
+    .then((department) => {
+      if (!department) {
         return res.status(404).send({
-          message: "Employee not found.",
+          message: "Department not found.",
         });
       }
 
-      employee.name = req.body.name;
-      employee.department = req.body.department;
-      employee.salary = req.body.salary;
+      department.name = req.body.name;
+      department.description = req.body.description;
 
-      employee
+      department
         .save()
-        .then((employee) => {
-          res.status(200).send(employee);
+        .then((department) => {
+          res.status(200).send(department);
         })
         .catch((err) => {
           res.status(500).send({
@@ -94,21 +89,21 @@ router.patch("/employees/:id", (req, res) => {
     });
 });
 
-// DELETE employee
-router.delete("/employees/:id", (req, res) => {
+// DELETE department
+router.delete("/departments/:id", (req, res) => {
   var id = parseInt(req.params.id);
-  Employee.findByPk(id)
-    .then((employee) => {
-      if (!employee) {
+  Department.findByPk(id)
+    .then((department) => {
+      if (!department) {
         return res.status(404).send({
-          message: "Employee not found.",
+          message: "Department not found.",
         });
       }
 
-      employee
+      department
         .destroy()
-        .then((employee) => {
-          res.status(200).send(employee);
+        .then((department) => {
+          res.status(200).send(department);
         })
         .catch((err) => {
           res.status(500).send({
@@ -126,4 +121,3 @@ router.delete("/employees/:id", (req, res) => {
 });
 
 module.exports = router;
-
