@@ -8,6 +8,7 @@ const Department = require("./models/Department");
 const Employee = require("./models/Employee");
 
 //route------------
+const departmentRoutes = require("./routes/departmentRoutes");
 const employeeRoutes = require("./routes/employeeRoutes");
 
 app.use(cors());
@@ -26,7 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //routes-------------
-app.use(employeeRoutes);
+app.use("/departments", departmentRoutes);
+app.use("/employees", employeeRoutes);
 
 //sync method
 sequelize
