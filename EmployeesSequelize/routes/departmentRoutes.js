@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Department = require("../models/Department");
 
 // GET all departments
-router.get("/departments", (req, res) => {
+router.get("/", (req, res) => {
   Department.findAll()
     .then((results) => {
       res.status(200).send(results);
@@ -16,7 +16,7 @@ router.get("/departments", (req, res) => {
 });
 
 // GET one department
-router.get("/departments/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Department.findByPk(id)
     .then((department) => {
@@ -37,7 +37,7 @@ router.get("/departments/:id", (req, res) => {
 });
 
 // POST create department
-router.post("/departments", (req, res) => {
+router.post("/", (req, res) => {
   var newDepartment = {
     name: req.body.name,
     description: req.body.description,
@@ -56,7 +56,7 @@ router.post("/departments", (req, res) => {
 });
 
 // PATCH update department
-router.patch("/departments/:id", (req, res) => {
+router.patch("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Department.findByPk(id)
     .then((department) => {
@@ -90,7 +90,7 @@ router.patch("/departments/:id", (req, res) => {
 });
 
 // DELETE department
-router.delete("/departments/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Department.findByPk(id)
     .then((department) => {

@@ -3,7 +3,7 @@ const Employee = require("../models/Employee");
 const Department = require("../models/Department");
 
 // GET all employees
-router.get("/employees", (req, res) => {
+router.get("/", (req, res) => {
   Employee.findAll()
     .then((results) => {
       res.status(200).send(results);
@@ -17,7 +17,7 @@ router.get("/employees", (req, res) => {
 });
 
 // GET one employee by ID (with department info)
-router.get("/employees/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Employee.findByPk(id, {
     include: Department, 
@@ -40,7 +40,7 @@ router.get("/employees/:id", (req, res) => {
 });
 
 // POST create new employee
-router.post("/employees", (req, res) => {
+router.post("/", (req, res) => {
   var newEmployee = {
     name: req.body.name,
     department: req.body.department,
@@ -60,7 +60,7 @@ router.post("/employees", (req, res) => {
 });
 
 // PATCH update employee
-router.patch("/employees/:id", (req, res) => {
+router.patch("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Employee.findByPk(id)
     .then((employee) => {
@@ -95,7 +95,7 @@ router.patch("/employees/:id", (req, res) => {
 });
 
 // DELETE employee
-router.delete("/employees/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   var id = parseInt(req.params.id);
   Employee.findByPk(id)
     .then((employee) => {
