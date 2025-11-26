@@ -1,22 +1,18 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { HospitalComponent } from './hospital/hospital';
+import { Hospital } from './hospital/hospital';
 
 @NgModule({
   declarations: [
     App,
-    HospitalComponent
+    Hospital
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule
   ],
-  providers: [
-    provideBrowserGlobalErrorListeners()
-  ],
+  providers: [],
   bootstrap: [App]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { DoctorCountService } from './doctor-count';
-import { PatientCountService } from './patient-count';
+import { DoctorCount } from './doctor-count';
+import { PatientCount } from './patient-count';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TotalCountService {
+export class TotalCount {
   constructor(
-    private doctorCountService: DoctorCountService,
-    private patientCountService: PatientCountService
+    private doctorCount: DoctorCount,
+    private patientCount: PatientCount
   ) {}
 
-  calculateTotal(doctors: any[], patients: any[]): number {
-    const doctorCount = this.doctorCountService.countDoctors(doctors);
-    const patientCount = this.patientCountService.countPatients(patients);
+  getTotal(doctors: any[], patients: any[]): number {
+    const doctorCount = this.doctorCount.countDoctors(doctors);
+    const patientCount = this.patientCount.countPatients(patients);
     return doctorCount + patientCount;
   }
 }

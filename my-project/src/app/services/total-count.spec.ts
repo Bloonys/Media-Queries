@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { TotalCountService } from './total-count';
 
-import { TotalCount } from './total-count';
-
-describe('TotalCount', () => {
-  let service: TotalCount;
+describe('TotalCountService', () => {
+  let service: TotalCountService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TotalCount);
+    service = TestBed.inject(TotalCountService);
   });
 
   it('should be created', () => {
