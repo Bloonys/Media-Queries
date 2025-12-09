@@ -1,4 +1,4 @@
-// Parent Class: students
+// Parent Class: Students
 class Students {
   name: string;
   age: number;
@@ -18,18 +18,15 @@ class Students {
   }
 }
 
-// Interface: Iundergrad
-interface Iundergrad {
-  name: string;
-  age: number;
-  gender: string;
-  nationality: string;
+// Interface: IUndergrad
+interface IUndergrad {
   batch: number;
   GPA: number;   // extra property required
 }
 
 // Child Class: UnderGraduates
-class UnderGraduate extends students implements Iundergrad {
+// 注意：这里实现了 IUndergrad 接口，继承了 Students 类
+class UnderGraduate extends Students implements IUndergrad {
   batch: number;
   GPA: number;
 
@@ -47,8 +44,7 @@ class UnderGraduate extends students implements Iundergrad {
 }
 
 // Create an UnderGraduate instance
-let Student1 = new UnderGraduate("Alice", 20, "Canadian", 2025, 3.8);
+let student1 = new UnderGraduate("Alice", 20, "Canadian", 2025, 3.8);
 
 // Print nationality
-student1.getNationality();
-
+student1.getNationality(); // 输出: Nationality: Canadian
